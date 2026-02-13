@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nana <nana@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:15:57 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/12 18:17:06 by nana             ###   ########.fr       */
+/*   Updated: 2026/02/13 09:53:19 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ void		ft_init_vars(t_game *game);
 void		ft_init_mlx(t_game *game);
 void		ft_init_sprites(t_game *game);
 int			ft_render_map(t_game *game);
+void		ft_shell_movement(t_game *game);
 int			ft_handle_input(int keysym, t_game *game);
 int			ft_close_game(t_game *game);
 void		ft_free_memory(t_game *game);

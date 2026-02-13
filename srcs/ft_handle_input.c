@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_input.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: narginaa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 10:59:14 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/10 10:59:16 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/02/13 10:07:23 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_player_move(t_game *game, int new_x, int new_y, int player_sprite)
 		game->map.player.y = new_y;
 		game->map.full[new_y][new_x] = PLAYER;
 		game->movements++;
+		ft_shell_movement(game);
 		ft_render_map(game);
 	}
 }

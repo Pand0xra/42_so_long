@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: narginaa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:20:00 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/10 11:20:11 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/02/13 10:40:28 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ void	ft_check_map_param(t_game *game)
 		ft_error_msg("Invalid map. It's a single player game...\n", game);
 	else if (game->map.exit == 0)
 		ft_error_msg("Invalid map. There's no exit.\n", game);
+	else if (game->map.exit > 1)
+		ft_error_msg("Invalid map. There can only be a single exit.\n", game);
 }
 
 void	ft_check_map(t_game *game)

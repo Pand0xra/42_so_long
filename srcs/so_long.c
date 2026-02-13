@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: narginaa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:25:38 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/10 11:25:40 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/02/13 10:11:33 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 	ft_init_mlx(game);
 	ft_init_sprites(game);
 	ft_render_map(game);
+	ft_shell_movement(game);
 	mlx_hook(game->win_ptr, KeyPress, KeyPressMask, ft_handle_input, game);
 	mlx_hook(game->win_ptr, DestroyNotify, ButtonPressMask, \
 ft_close_game, game);

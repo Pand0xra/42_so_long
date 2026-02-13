@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_format.c                                  :+:      :+:    :+:   */
+/*   ft_check_format_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 18:15:00 by nana              #+#    #+#             */
-/*   Updated: 2026/02/13 09:22:03 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/02/13 09:22:19 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void    ft_check_format(t_game *game)
 {
@@ -30,4 +30,3 @@ void    ft_check_format(t_game *game)
         y++;
     }
 }
-

@@ -6,7 +6,7 @@
 /*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:20:58 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/10 11:29:22 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/02/13 09:17:55 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ static void	ft_init_map_helper(int map_fd, t_game *game)
 		line = get_next_line(map_fd);
 		if (!line)
 			break ;
+		len = ft_strlen(line);
 		if (line[0] == '\n')
 		{
 			free(line);
@@ -65,15 +66,13 @@ static void	ft_init_map_helper(int map_fd, t_game *game)
 			ft_error_msg("Invalid map.Empty line in the middle of the map.\n", \
 game);
 		}
-		len = ft_strlen(line);
-		if (line[len - 1] == '\n')
-		{
+		while (len > 0 && (line[len - 1] == '\n' || line[len - 1] == '\r'))
+    	{
 			line[len - 1] = '\0';
-			len--;
+    		len--;
 		}
 		game->map.full[game->map.rows++] = line;
 	}
-	game->map.columns = len;
 }
 
 void	ft_init_map(char *map_path, t_game *game)
@@ -89,6 +88,7 @@ void	ft_init_map(char *map_path, t_game *game)
 		ft_error_msg("Map allocation failed.\n", game);
 	game->map.rows = 0;
 	ft_init_map_helper(map_fd, game);
+	game->map.columns = ft_strlen(game->map.full[0]);
 	game->map.full[game->map.rows] = NULL;
 	close(map_fd);
 }

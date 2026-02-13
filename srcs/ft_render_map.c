@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_render_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: narginaa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 10:59:45 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/10 10:59:49 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/02/13 10:09:43 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,18 @@ void	ft_identify_sprite(t_game *game, int y, int x)
 		ft_render_player(game, y, x);
 }
 
-void	ft_render_movements(t_game *game)
+void	ft_shell_movement(t_game *game)
 {
-	char	*movements;
-	char	*sentence;
+	char	*str;
 
-	movements = ft_itoa(game->movements);
-	if (!movements)
-		ft_error_msg("Allocation for the var `movements` failed.\n", game);
-	sentence = ft_strjoin("Movements :", movements);
-	if (!sentence)
-		ft_error_msg("Allocation for the var `sentence` failed.\n", game);
-	mlx_string_put(game->mlx_instance, game->win_ptr, 40, 20, 0xFFFFF, \
-sentence);
-	free(sentence);
-	free(movements);
+	ft_putstr_fd("\n			Movements: ", 1);
+	str = ft_itoa(game->movements);
+	if (!str)
+		ft_error_msg("Allocation failed.\n", game);
+	ft_putstr_fd(str, 1);
+	free(str);
+	ft_putstr_fd("\n", 1);
 }
-
 int	ft_render_map(t_game *game)
 {
 	int	x;
@@ -85,6 +80,5 @@ int	ft_render_map(t_game *game)
 		}
 		y++;
 	}
-	ft_render_movements(game);
 	return (0);
 }
