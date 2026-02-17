@@ -20,6 +20,8 @@
 # include <fcntl.h>
 # include <stdbool.h>
 # include <unistd.h>
+# include <stdlib.h>
+# include <time.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -90,6 +92,14 @@ typedef struct s_image
 	void	*xpm_ptr;
 }				t_image;
 
+typedef struct s_ghost
+{
+	int	x;
+	int	y;
+	int	prev_x;
+	int	prev_y;
+}				t_ghost;
+
 typedef struct s_game
 {
 	t_map	map;
@@ -110,6 +120,7 @@ typedef struct s_game
 	t_image	ghost_down;
 	int		ghost_anim_frame;
 	int		ghost_anim_counter;
+	t_list	*ghosts;
 }				t_game;
 
 typedef struct s_gnl_list
@@ -124,6 +135,7 @@ void		ft_init_map(char *map, t_game *game);
 void		ft_init_vars(t_game *game);
 void		ft_check_map(t_game *game);
 void		ft_check_format(t_game *game);
+void		ft_flood_fill(t_game *game);
 void		ft_init_mlx(t_game *game);
 void		ft_init_sprites(t_game *game);
 int			ft_render_map(t_game *game);
@@ -135,6 +147,9 @@ void		ft_victory(t_game *game);
 void		ft_loss(t_game *game);
 void		ft_render_ghost(t_game *game, int y, int x);
 void		ft_render_sprite(t_game *game, t_image sprite, int y, int x);
+void		ft_init_ghosts(t_game *game);
+int			ft_anim_ghost(t_game *game);
+void		ft_move_ghosts(t_game *game);
 
 char		*get_next_line(int fd);
 int			ft_create_list(t_gnl_list **list, int fd);

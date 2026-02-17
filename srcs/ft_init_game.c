@@ -6,20 +6,11 @@
 /*   By: nana <nana@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 10:59:27 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/12 18:59:23 by nana             ###   ########.fr       */
+/*   Updated: 2026/02/17 17:54:30 by nana             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	ft_init_vars(t_game *game)
-{
-	game->map.coins = 0;
-	game->map.exit = 0;
-	game->map.player.count = 0;
-	game->movements = 0;
-	game->player_sprite = RIGHT;
-}
 
 void	ft_init_mlx(t_game *game)
 {
@@ -27,7 +18,7 @@ void	ft_init_mlx(t_game *game)
 	if (game->mlx_instance == NULL)
 		ft_error_msg("Couldn't find mlx pointer. Try it using a VNC.\n", game);
 	game->win_ptr = mlx_new_window(game->mlx_instance, \
-game->map.columns * IMG_WIDTH, game->map.rows * IMG_HEIGHT, "haunt u :p");
+game->map.columns * IMG_WIDTH, game->map.rows * IMG_HEIGHT, "gg ez <3");
 	if (game->win_ptr == NULL)
 		ft_close_game(game);
 }

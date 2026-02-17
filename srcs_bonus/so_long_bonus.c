@@ -27,6 +27,7 @@ int	ft_anim_ghost(t_game *game)
 		game->ghost_anim_counter++;
 		return (0);
 	}
+	ft_move_ghosts(game);
 	game->ghost_anim_counter = 0;
 	if (game->ghost_anim_frame == 0)
 		game->ghost_anim_frame = 1;
@@ -48,6 +49,8 @@ int	main(int argc, char **argv)
 	ft_init_map(argv[1], game);
 	ft_init_vars(game);
 	ft_check_map(game);
+	ft_flood_fill(game);
+	ft_init_ghosts(game);
 	ft_init_mlx(game);
 	ft_init_sprites(game);
 	ft_render_map(game);

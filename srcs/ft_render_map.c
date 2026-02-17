@@ -64,6 +64,7 @@ void	ft_shell_movement(t_game *game)
 	free(str);
 	ft_putstr_fd("\n", 1);
 }
+
 int	ft_render_map(t_game *game)
 {
 	int	x;

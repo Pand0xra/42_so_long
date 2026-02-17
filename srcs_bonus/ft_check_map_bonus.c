@@ -19,6 +19,11 @@ void	ft_check_rows(t_game *game)
 	i = 0;
 	while (i < game->map.rows)
 	{
+		if ((int)ft_strlen(game->map.full[i]) != game->map.columns)
+		{
+			ft_free_map(game);
+			ft_error_msg("Invalid map. The map must be rectangular.\n", game);
+		}
 		if (game->map.full[i][0] != WALL)
 		{
 			ft_free_map(game);

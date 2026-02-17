@@ -19,6 +19,11 @@ void	ft_check_rows(t_game *game)
 	i = 0;
 	while (i < game->map.rows)
 	{
+		if ((int)ft_strlen(game->map.full[i]) != game->map.columns)
+		{
+			ft_free_map(game);
+			ft_error_msg("Invalid map. The map must be rectangular.\n", game);
+		}
 		if (game->map.full[i][0] != WALL)
 		{
 			ft_free_map(game);
@@ -89,6 +94,8 @@ void	ft_check_map_param(t_game *game)
 		ft_error_msg("Invalid map. It's a single player game...\n", game);
 	else if (game->map.exit == 0)
 		ft_error_msg("Invalid map. There's no exit.\n", game);
+	else if (game->map.exit > 1)
+		ft_error_msg("Invalid map. There can only be a single exit.\n", game);
 }
 
 void	ft_check_map(t_game *game)

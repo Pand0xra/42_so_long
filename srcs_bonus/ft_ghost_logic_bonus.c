@@ -1,0 +1,92 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ghost_logic_bonus.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nana <nana@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/10 11:21:44 by narginaa          #+#    #+#             */
+/*   Updated: 2026/02/10 11:21:46 by narginaa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "so_long_bonus.h"
+
+void	ft_init_ghosts(t_game *game)
+{
+	int		x;
+	int		y;
+	t_ghost	*ghost;
+
+	srand(time(NULL));
+	y = 0;
+	while (y < game->map.rows)
+	{
+		x = 0;
+		while (x < game->map.columns)
+		{
+			if (game->map.full[y][x] == GHOST)
+			{
+				ghost = malloc(sizeof(t_ghost));
+				if (!ghost)
+					ft_error_msg("Malloc failed for ghost", game);
+				ghost->x = x;
+				ghost->y = y;
+				ft_lstadd_back(&game->ghosts, ft_lstnew(ghost));
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
+static void	ft_update_ghost_pos(t_game *game, t_ghost *ghost, int ny, int nx)
+{
+	if (game->map.full[ny][nx] == PLAYER)
+		ft_loss(game);
+	game->map.full[ghost->y][ghost->x] = FLOOR;
+	game->map.full[ny][nx] = GHOST;
+	ghost->x = nx;
+	ghost->y = ny;
+}
+
+static int	ft_is_valid_move(t_game *game, int y, int x)
+{
+	char	pos;
+
+	if (y < 0 || x < 0 || y >= game->map.rows || x >= game->map.columns)
+		return (0);
+	pos = game->map.full[y][x];
+	if (pos == WALL || pos == EXIT || pos == COINS || pos == GHOST)
+		return (0);
+	return (1);
+}
+
+void	ft_move_ghosts(t_game *game)
+{
+	t_list	*head;
+	t_ghost	*ghost;
+	int		dir;
+	int		nx;
+	int		ny;
+
+	head = game->ghosts;
+	while (head)
+	{
+		ghost = (t_ghost *)head->content;
+		dir = rand() % 4;
+		nx = ghost->x;
+		ny = ghost->y;
+		if (dir == 0)
+			ny--;
+		else if (dir == 1)
+			ny++;
+		else if (dir == 2)
+			nx--;
+		else
+			nx++;
+		if (ft_is_valid_move(game, ny, nx))
+			ft_update_ghost_pos(game, ghost, ny, nx);
+		head = head->next;
+	}
+}

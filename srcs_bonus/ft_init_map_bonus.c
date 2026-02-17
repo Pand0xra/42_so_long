@@ -67,9 +67,9 @@ static void	ft_init_map_helper(int map_fd, t_game *game)
 game);
 		}
 		while (len > 0 && (line[len - 1] == '\n' || line[len - 1] == '\r'))
-    	{
+		{
 			line[len - 1] = '\0';
-    		len--;
+			len--;
 		}
 		game->map.full[game->map.rows++] = line;
 	}

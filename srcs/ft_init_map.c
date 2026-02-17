@@ -66,10 +66,10 @@ static void	ft_init_map_helper(int map_fd, t_game *game)
 			ft_error_msg("Invalid map. Empty line in the middle of the map.\n", \
 game);
 		}
-    	while (len > 0 && (line[len - 1] == '\n' || line[len - 1] == '\r'))
-    	{
+		while (len > 0 && (line[len - 1] == '\n' || line[len - 1] == '\r'))
+		{
 			line[len - 1] = '\0';
-    		len--;
+			len--;
 		}
 		game->map.full[game->map.rows++] = line;
 	}

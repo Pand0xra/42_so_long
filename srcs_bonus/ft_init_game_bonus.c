@@ -6,7 +6,7 @@
 /*   By: nana <nana@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:20:38 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/12 18:58:42 by nana             ###   ########.fr       */
+/*   Updated: 2026/02/17 17:53:22 by nana             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,8 @@
 
 void	ft_init_vars(t_game *game)
 {
-	game->map.coins = 0;
-	game->map.exit = 0;
-	game->map.player.count = 0;
-	game->movements = 0;
 	game->player_sprite = RIGHT;
-	game->ghost_anim_frame = 0;
-	game->ghost_anim_counter = 0;
+	game->ghosts = NULL;
 }
 
 void	ft_init_mlx(t_game *game)
@@ -29,7 +24,7 @@ void	ft_init_mlx(t_game *game)
 	if (game->mlx_instance == NULL)
 		ft_error_msg("Couldn't find mlx pointer. Try it using a VNC.\n", game);
 	game->win_ptr = mlx_new_window(game->mlx_instance, \
-game->map.columns * IMG_WIDTH, game->map.rows * IMG_HEIGHT, "haunt u :p");
+game->map.columns * IMG_WIDTH, game->map.rows * IMG_HEIGHT, "gg ez <3");
 	if (game->win_ptr == NULL)
 		ft_close_game(game);
 }

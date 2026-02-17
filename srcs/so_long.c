@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nana <nana@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:25:38 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/13 10:11:33 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/02/17 17:54:24 by nana             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ int	main(int argc, char **argv)
 	ft_memset(game, 0, sizeof(game));
 	ft_parse_cmd_line_args(argc, argv, game);
 	ft_init_map(argv[1], game);
-	ft_init_vars(game);
+	game->player_sprite = RIGHT;
 	ft_check_map(game);
+	ft_flood_fill(game);
 	ft_init_mlx(game);
 	ft_init_sprites(game);
 	ft_render_map(game);

@@ -42,6 +42,7 @@ void	ft_free_map(t_game *game)
 
 void	ft_free_memory(t_game *game)
 {
+	ft_lstclear(&game->ghosts, free);
 	ft_destroy_image(game);
 	ft_free_map(game);
 	mlx_destroy_window(game->mlx_instance, game->win_ptr);
