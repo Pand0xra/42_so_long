@@ -12,13 +12,39 @@
 
 #include "so_long.h"
 
+void	ft_init_vars(t_game *game)
+{
+	game->map.coins = 0;
+	game->map.exit = 0;
+	game->map.player.count = 0;
+	game->map.player.x = 0;
+	game->map.player.y = 0;
+	game->map.full = NULL;
+	game->map.copy = NULL;
+	game->mlx_instance = NULL;
+	game->player_sprite = RIGHT;
+	game->win_ptr = NULL;
+}
+
 void	ft_init_mlx(t_game *game)
 {
+	int	screen_width;
+	int	screen_height;
+	int	win_width;
+	int	win_height;
+
 	game->mlx_instance = mlx_init();
 	if (game->mlx_instance == NULL)
 		ft_error_msg("Couldn't find mlx pointer. Try it using a VNC.\n", game);
+	mlx_get_screen_size(game->mlx_instance, &screen_width, &screen_height);
+	win_width = game->map.columns * IMG_WIDTH;
+	win_height = game->map.rows * IMG_HEIGHT;
+	if (win_width > screen_width)
+		win_width = screen_width;
+	if (win_height > screen_height)
+		win_height = screen_height;
 	game->win_ptr = mlx_new_window(game->mlx_instance, \
-game->map.columns * IMG_WIDTH, game->map.rows * IMG_HEIGHT, "gg ez <3");
+win_width, win_height, "so_long");
 	if (game->win_ptr == NULL)
 		ft_close_game(game);
 }

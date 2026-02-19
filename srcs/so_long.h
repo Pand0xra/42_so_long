@@ -69,6 +69,7 @@ typedef struct s_player
 typedef struct s_map
 {
 	char		**full;
+	char		**copy;
 	int			rows;
 	int			columns;
 	int			coins;
@@ -114,6 +115,7 @@ typedef struct s_gnl_list
 void		ft_error_msg(char *message, t_game *game);
 void		ft_parse_cmd_line_args(int argc, char **argv, t_game *game);
 void		ft_init_map(char *map, t_game *game);
+void		ft_init_vars(t_game *game);
 void		ft_check_map(t_game *game);
 void		ft_check_format(t_game *game);
 void		ft_flood_fill(t_game *game);

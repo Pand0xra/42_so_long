@@ -14,17 +14,28 @@
 
 void	ft_destroy_image(t_game *game)
 {
-	mlx_destroy_image(game->mlx_instance, game->wall.xpm_ptr);
-	mlx_destroy_image(game->mlx_instance, game->floor.xpm_ptr);
-	mlx_destroy_image(game->mlx_instance, game->coins.xpm_ptr);
-	mlx_destroy_image(game->mlx_instance, game->player_front.xpm_ptr);
-	mlx_destroy_image(game->mlx_instance, game->player_left.xpm_ptr);
-	mlx_destroy_image(game->mlx_instance, game->player_right.xpm_ptr);
-	mlx_destroy_image(game->mlx_instance, game->player_back.xpm_ptr);
-	mlx_destroy_image(game->mlx_instance, game->exit_open.xpm_ptr);
-	mlx_destroy_image(game->mlx_instance, game->exit_closed.xpm_ptr);
-	mlx_destroy_image(game->mlx_instance, game->ghost_up.xpm_ptr);
-	mlx_destroy_image(game->mlx_instance, game->ghost_down.xpm_ptr);
+	if (game->wall.xpm_ptr)
+		mlx_destroy_image(game->mlx_instance, game->wall.xpm_ptr);
+	if (game->floor.xpm_ptr)
+		mlx_destroy_image(game->mlx_instance, game->floor.xpm_ptr);
+	if (game->coins.xpm_ptr)
+		mlx_destroy_image(game->mlx_instance, game->coins.xpm_ptr);
+	if (game->player_front.xpm_ptr)
+		mlx_destroy_image(game->mlx_instance, game->player_front.xpm_ptr);
+	if (game->player_left.xpm_ptr)
+		mlx_destroy_image(game->mlx_instance, game->player_left.xpm_ptr);
+	if (game->player_right.xpm_ptr)
+		mlx_destroy_image(game->mlx_instance, game->player_right.xpm_ptr);
+	if (game->player_back.xpm_ptr)
+		mlx_destroy_image(game->mlx_instance, game->player_back.xpm_ptr);
+	if (game->exit_open.xpm_ptr)
+		mlx_destroy_image(game->mlx_instance, game->exit_open.xpm_ptr);
+	if (game->exit_closed.xpm_ptr)
+		mlx_destroy_image(game->mlx_instance, game->exit_closed.xpm_ptr);
+	if (game->ghost_up.xpm_ptr)
+		mlx_destroy_image(game->mlx_instance, game->ghost_up.xpm_ptr);
+	if (game->ghost_down.xpm_ptr)
+		mlx_destroy_image(game->mlx_instance, game->ghost_down.xpm_ptr);
 }
 
 void	ft_free_map(t_game *game)
@@ -45,8 +56,12 @@ void	ft_free_memory(t_game *game)
 	ft_lstclear(&game->ghosts, free);
 	ft_destroy_image(game);
 	ft_free_map(game);
-	mlx_destroy_window(game->mlx_instance, game->win_ptr);
-	mlx_destroy_display(game->mlx_instance);
-	free(game->mlx_instance);
+	if (game->win_ptr)
+		mlx_destroy_window(game->mlx_instance, game->win_ptr);
+	if (game->mlx_instance)
+	{
+		mlx_destroy_display(game->mlx_instance);
+		free(game->mlx_instance);
+	}
 	free(game);
 }

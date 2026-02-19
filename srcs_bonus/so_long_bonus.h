@@ -78,6 +78,7 @@ typedef struct s_player
 typedef struct s_map
 {
 	char		**full;
+	char		**copy;
 	int			rows;
 	int			columns;
 	int			coins;

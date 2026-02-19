@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <stdio.h>
 
 void	ft_parse_cmd_line_args(int argc, char **argv, t_game *game)
 {
@@ -83,7 +84,11 @@ void	ft_init_map(char *map_path, t_game *game)
 	if (map_fd == -1)
 		ft_error_msg("Can't open the file map. Does the map exist?\n", game);
 	ft_count_rows(map_path, game);
+	if (game->map.rows == 0)
+		ft_error_msg("The map is empty.\n", game);
 	game->map.full = ft_calloc(game->map.rows + 1, sizeof(char *));
+	printf("rows: %d\n", game->map.rows);
+	printf("full: %p\n", game->map.full);
 	if (!game->map.full)
 		ft_error_msg("Map allocation failed.\n", game);
 	game->map.rows = 0;

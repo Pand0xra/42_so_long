@@ -23,9 +23,7 @@ void	ft_error_msg(char *message, t_game *game)
 {
 	ft_putstr_fd("Error\n", 1);
 	ft_putstr_fd(message, 1);
-	if (game->map.full)
-		ft_free_map(game);
-	free(game);
+	ft_free_memory(game);
 	exit(EXIT_FAILURE);
 }
 

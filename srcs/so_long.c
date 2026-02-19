@@ -19,10 +19,10 @@ int	main(int argc, char **argv)
 	game = malloc(sizeof(t_game));
 	if (!game)
 		return (1);
-	ft_memset(game, 0, sizeof(game));
+	ft_memset(game, 0, sizeof(t_game));
+	ft_init_vars(game);
 	ft_parse_cmd_line_args(argc, argv, game);
 	ft_init_map(argv[1], game);
-	game->player_sprite = RIGHT;
 	ft_check_map(game);
 	ft_flood_fill(game);
 	ft_init_mlx(game);

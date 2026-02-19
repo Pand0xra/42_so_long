@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <stdio.h>
 
 void	ft_check_format(t_game *game)
 {
@@ -20,6 +21,8 @@ void	ft_check_format(t_game *game)
 
 	y = 0;
 	count_x = game->map.columns;
+	printf("rows: %d\n", game->map.rows);
+	printf("columns: %d\n", game->map.columns);
 	while (game->map.full[y])
 	{
 		x = 0;
