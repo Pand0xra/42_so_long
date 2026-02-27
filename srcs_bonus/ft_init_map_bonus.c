@@ -6,7 +6,7 @@
 /*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:20:58 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/13 09:17:55 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/02/27 08:44:28 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,21 @@
 
 void	ft_parse_cmd_line_args(int argc, char **argv, t_game *game)
 {
-	int	map_name_len;
+	int		map_len;
+	char	*filename;
 
 	if (argc > 2)
 		ft_error_msg("Too many arguments.\n", game);
 	else if (argc < 2)
 		ft_error_msg("The Map file is missing.\n", game);
-	map_name_len = ft_strlen(argv[1]);
-	if (!ft_strnstr(argv[1] + (map_name_len - 4), ".ber", 4))
-		ft_error_msg("Wrong file extension: `.ber`is expected.\n", game);
-	else if (argv[1][0] == '.')
-		ft_error_msg("A filename cannot consist only of `.ber`!\n", game);
+	filename = ft_strrchr(argv[1], '/');
+	if (filename)
+		filename++;
+	else
+		filename = argv[1];
+	map_len = ft_strlen(filename);
+	if (map_len < 5 || (ft_strncmp(filename + map_len - 4, ".ber", 4) != 0))
+		ft_error_msg("Wrong file extension: `.ber` is expected.\n", game);
 }
 
 void	ft_count_rows(char *map_path, t_game *game)
@@ -63,8 +67,7 @@ static void	ft_init_map_helper(int map_fd, t_game *game)
 			free(line);
 			close(map_fd);
 			ft_free_map(game);
-			ft_error_msg("Invalid map.Empty line in the middle of the map.\n", \
-game);
+			ft_error_msg("Invalid map: empty line.\n", game);
 		}
 		while (len > 0 && (line[len - 1] == '\n' || line[len - 1] == '\r'))
 		{

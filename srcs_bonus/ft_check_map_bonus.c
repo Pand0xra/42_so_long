@@ -6,7 +6,7 @@
 /*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:20:00 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/13 10:40:28 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/02/27 09:26:03 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ void	ft_check_rows(t_game *game)
 	i = 0;
 	while (i < game->map.rows)
 	{
-		if ((int)ft_strlen(game->map.full[i]) != game->map.columns)
-		{
-			ft_free_map(game);
-			ft_error_msg("Invalid map. The map must be rectangular.\n", game);
-		}
 		if (game->map.full[i][0] != WALL)
 		{
 			ft_free_map(game);
@@ -100,6 +95,7 @@ void	ft_check_map_param(t_game *game)
 
 void	ft_check_map(t_game *game)
 {
+	ft_check_format(game);
 	ft_check_rows(game);
 	ft_check_columns(game);
 	ft_count_map_param(game);

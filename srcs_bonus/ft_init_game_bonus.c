@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_game_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nana <nana@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:20:38 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/17 17:53:22 by nana             ###   ########.fr       */
+/*   Updated: 2026/02/27 09:35:50 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,12 @@ void	ft_init_vars(t_game *game)
 
 void	ft_init_mlx(t_game *game)
 {
-	int	screen_width;
-	int	screen_height;
-	int	win_width;
-	int	win_height;
-
 	game->mlx_instance = mlx_init();
 	if (game->mlx_instance == NULL)
 		ft_error_msg("Couldn't find mlx pointer. Try it using a VNC.\n", game);
 	mlx_get_screen_size(game->mlx_instance, &screen_width, &screen_height);
-	win_width = game->map.columns * IMG_WIDTH;
-	win_height = game->map.rows * IMG_HEIGHT;
-	if (win_width > screen_width)
-		win_width = screen_width;
-	if (win_height > screen_height)
-		win_height = screen_height;
 	game->win_ptr = mlx_new_window(game->mlx_instance, \
-win_width, win_height, "so_long");
+game->map.columns * IMG_WIDTH, game->map.rows * IMG_HEIGHT, "so_long");
 	if (game->win_ptr == NULL)
 		ft_close_game(game);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nana <nana@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:15:57 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/17 17:54:40 by nana             ###   ########.fr       */
+/*   Updated: 2026/02/27 08:38:08 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include "../libft/libft.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
-# include "../libft/libft.h"
 # include <stdbool.h>
 
 # define IMG_HEIGHT 96

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_flood_fill_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nana <nana@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 17:26:18 by nana              #+#    #+#             */
-/*   Updated: 2026/02/17 18:19:58 by nana             ###   ########.fr       */
+/*   Updated: 2026/02/27 09:14:34 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,13 @@ void	ft_fill(char **map, t_game *game, int y, int x)
 {
 	if (y < 0 || x < 0 || y >= game->map.rows || x >= game->map.columns)
 		return ;
-	if (map[y][x] == WALL || map[y][x] == EXIT || map[y][x] == 'F')
+	if (map[y][x] == WALL || map[y][x] == 'F')
 		return ;
+	if (map[y][x] == EXIT)
+	{
+		map[y][x] = 'F';
+		return ;
+	}
 	map[y][x] = 'F';
 	ft_fill(map, game, y - 1, x);
 	ft_fill(map, game, y + 1, x);
@@ -65,7 +70,7 @@ void	ft_flood_fill(t_game *game)
 {
 	int		i;
 
-	game->map.copy = malloc(sizeof(char *) * (game->map.rows + 1));
+	game->map.copy = ft_calloc(game->map.rows + 1, sizeof(char *));
 	if (!game->map.copy)
 		ft_error_msg("Memory allocation failed for map copy.\n", game);
 	i = 0;

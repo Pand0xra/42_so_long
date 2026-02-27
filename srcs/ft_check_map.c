@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: narginaa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 10:57:39 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/10 10:58:19 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/02/27 08:41:43 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ void	ft_check_rows(t_game *game)
 	i = 0;
 	while (i < game->map.rows)
 	{
-		if ((int)ft_strlen(game->map.full[i]) != game->map.columns)
-		{
-			ft_free_map(game);
-			ft_error_msg("Invalid map. The map must be rectangular.\n", game);
-		}
 		if (game->map.full[i][0] != WALL)
 		{
 			ft_free_map(game);
