@@ -3,8 +3,8 @@
 *This project has been created as part of the 42 curriculum by narginaa.*
 
 ## Description
-The `so_long` project is a small 2D game built using the **miniLibX** graphics library. /
-The goal is to create a top-down game where the player must collect all the items (coins) on a map and then reach the exit, /
+The `so_long` project is a small 2D game built using the **miniLibX** graphics library.  
+The goal is to create a top-down game where the player must collect all the items (coins) on a map and then reach the exit,  
 all while navigating around walls and keeping track of the total number of movements.
 
 ## Instructions
@@ -60,13 +60,13 @@ Example of a valid map:
 ### Parsing & Validation Strategy
 1. **File Reading**: Uses `get_next_line` to read the map line by line and store it into a 2D array.
 
-2. **Format Checking**: Iterates through the 2D array to ensure the map is rectangular, properly walled off, /
+2. **Format Checking**: Iterates through the 2D array to ensure the map is rectangular, properly walled off,  
 and contains no invalid characters.
 
-3. **Flood-Fill Algorithm (Pathfinding)**: Before the game launches, a **Depth-First Search (DFS) Flood-Fill** /
-algorithm  is executed on a copy of the map. It starts from the player's position and spreads to verify that **every single collectible** /
+3. **Flood-Fill Algorithm (Pathfinding)**: Before the game launches, a **Depth-First Search (DFS) Flood-Fill**  
+algorithm  is executed on a copy of the map. It starts from the player's position and spreads to verify that **every single collectible**  
 and the **exit** are reachable without walking through walls. /
-If any item is trapped, the game throws an error and refuses to launch
+If any item is trapped, the game throws an error and refuses to launch.
 
 ### Graphics & Memory
 
