@@ -65,15 +65,15 @@ and contains no invalid characters.
 
 3. **Flood-Fill Algorithm (Pathfinding)**: Before the game launches, a **Depth-First Search (DFS) Flood-Fill**  
 algorithm  is executed on a copy of the map. It starts from the player's position and spreads to verify that **every single collectible**  
-and the **exit** are reachable without walking through walls. /
+and the **exit** are reachable without walking through walls.  
 If any item is trapped, the game throws an error and refuses to launch.
 
 ### Graphics & Memory
 
 - **miniLibX**: Used to open the window, hook keyboard inputs, and render `.xpm` textures directly to the screen.
-- **Directional Sprites**: The player texture dynamically updates to face the direction they are walking /
+- **Directional Sprites**: The player texture dynamically updates to face the direction they are walking  
 (Front, Back, Left, Right).
-- **Memory Management**: Strictly checks for memory leaks. /
+- **Memory Management**: Strictly checks for memory leaks.  
 All images are destroyed, windows are closed, and map arrays are freed upon exit (`ESC`, `Q`, or clicking the window cross).
 
 ## Ressources
