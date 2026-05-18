@@ -1,6 +1,6 @@
-# so_long
-
 *This project has been created as part of the 42 curriculum by narginaa.*
+
+# so_long
 
 ## Description
 The `so_long` project is a small 2D game built using the **miniLibX** graphics library.  
