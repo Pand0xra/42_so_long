@@ -1,8 +1,8 @@
 <p align="center"> This project has been created as part of the 42 curriculum by narginaa. </p>
 <p align="center">
-	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/Pand0xra/so_long?color=6272a4" />
-	<img alt="Main language" src="https://img.shields.io/github/languages/top/Pand0xra/so_long?color=6272a4"/>
-	<img alt="License" src="https://img.shields.io/github/license/Pand0xra/so_long?color=6272a4"/>
+	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/Pand0xra/42_so_long?color=6272a4" />
+	<img alt="Main language" src="https://img.shields.io/github/languages/top/Pand0xra/42_so_long?color=6272a4"/>
+	<img alt="License" src="https://img.shields.io/github/license/Pand0xra/42_so_long?color=6272a4"/>
 </p>
 
 <h1 align="center">
