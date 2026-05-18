@@ -6,7 +6,7 @@
 /*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:15:57 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/27 08:38:08 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/03/03 10:08:41 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ int			ft_close_game(t_game *game);
 void		ft_free_memory(t_game *game);
 void		ft_victory(t_game *game);
 void		ft_free_map(t_game *game);
+void		ft_render_player(t_game *game, int y, int x);
 
 char		*get_next_line(int fd);
 int			ft_create_list(t_gnl_list **list, int fd);

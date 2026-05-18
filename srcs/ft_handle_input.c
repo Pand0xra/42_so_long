@@ -6,7 +6,7 @@
 /*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 10:59:14 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/13 10:07:23 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/03/03 10:07:36 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	ft_player_move(t_game *game, int new_x, int new_y, int player_sprite)
 		ft_shell_movement(game);
 		ft_render_map(game);
 	}
+	else
+		ft_render_player(game, last_y, last_x);
 }
 
 int	ft_handle_input(int keysym, t_game *game)

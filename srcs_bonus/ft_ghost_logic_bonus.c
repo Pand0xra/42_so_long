@@ -3,20 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ghost_logic_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nana <nana@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:21:44 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/10 11:21:46 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/03/04 08:32:25 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
+static void	ft_init_ghosts_helper(int y, int x, t_game *game)
+{
+	t_ghost	*ghost;
+	t_list	*new_node;
+
+	if (game->map.full[y][x] == GHOST)
+	{
+		ghost = malloc(sizeof(t_ghost));
+		if (!ghost)
+			ft_error_msg("Malloc failed for ghost", game);
+		ghost->x = x;
+		ghost->y = y;
+		new_node = ft_lstnew(ghost);
+		if (!new_node)
+		{
+			free(ghost);
+			ft_error_msg("Malloc failed for ghost node.\n", game);
+		}
+		ft_lstadd_back(&game->ghosts, new_node);
+	}
+}
+
 void	ft_init_ghosts(t_game *game)
 {
 	int		x;
 	int		y;
-	t_ghost	*ghost;
 
 	srand(time(NULL));
 	y = 0;
@@ -25,15 +46,7 @@ void	ft_init_ghosts(t_game *game)
 		x = 0;
 		while (x < game->map.columns)
 		{
-			if (game->map.full[y][x] == GHOST)
-			{
-				ghost = malloc(sizeof(t_ghost));
-				if (!ghost)
-					ft_error_msg("Malloc failed for ghost", game);
-				ghost->x = x;
-				ghost->y = y;
-				ft_lstadd_back(&game->ghosts, ft_lstnew(ghost));
-			}
+			ft_init_ghosts_helper(y, x, game);
 			x++;
 		}
 		y++;

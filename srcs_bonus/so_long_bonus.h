@@ -6,7 +6,7 @@
 /*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:21:37 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/27 09:24:43 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/03/03 10:13:01 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,7 @@ void		ft_render_sprite(t_game *game, t_image sprite, int y, int x);
 void		ft_init_ghosts(t_game *game);
 int			ft_anim_ghost(t_game *game);
 void		ft_move_ghosts(t_game *game);
+void		ft_render_player(t_game *game, int y, int x);
 
 char		*get_next_line(int fd);
 int			ft_create_list(t_gnl_list **list, int fd);

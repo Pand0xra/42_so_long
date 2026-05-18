@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_input_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: narginaa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:19:38 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/10 11:19:40 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/03/03 10:12:34 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	ft_player_move(t_game *game, int new_x, int new_y, int player_sprite)
 		game->movements++;
 		ft_render_map(game);
 	}
+	else
+		ft_render_player(game, last_y, last_x);
 }
 
 int	ft_handle_input(int keysym, t_game *game)

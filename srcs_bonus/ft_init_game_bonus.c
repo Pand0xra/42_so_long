@@ -6,7 +6,7 @@
 /*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:20:38 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/27 09:35:50 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/03/03 09:55:45 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,10 @@ void	ft_init_mlx(t_game *game)
 	game->mlx_instance = mlx_init();
 	if (game->mlx_instance == NULL)
 		ft_error_msg("Couldn't find mlx pointer. Try it using a VNC.\n", game);
-	mlx_get_screen_size(game->mlx_instance, &screen_width, &screen_height);
 	game->win_ptr = mlx_new_window(game->mlx_instance, \
 game->map.columns * IMG_WIDTH, game->map.rows * IMG_HEIGHT, "so_long");
 	if (game->win_ptr == NULL)
-		ft_close_game(game);
+		ft_error_msg("Window creation failed.\n", game);
 }
 
 t_image	ft_new_sprite(void *mlx, char *path, t_game *game)

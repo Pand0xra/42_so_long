@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_render_map_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: narginaa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:22:08 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/10 11:22:10 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/03/04 07:56:40 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,11 @@ void	ft_render_movements(t_game *game)
 		ft_error_msg("Allocation for the var `movements` failed.\n", game);
 	sentence = ft_strjoin("Movements :", movements);
 	if (!sentence)
+	{	
+		free(movements);
 		ft_error_msg("Allocation for the var `sentence` failed.\n", game);
-	mlx_string_put(game->mlx_instance, game->win_ptr, 40, 20, 0xFFFFF, \
+	}
+	mlx_string_put(game->mlx_instance, game->win_ptr, 40, 20, 0xFFFFFF, \
 sentence);
 	free(sentence);
 	free(movements);

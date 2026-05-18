@@ -6,7 +6,7 @@
 /*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 10:59:27 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/27 09:44:46 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/03/03 09:55:40 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_init_mlx(t_game *game)
 	game->win_ptr = mlx_new_window(game->mlx_instance, \
 game->map.columns * IMG_WIDTH, game->map.rows * IMG_HEIGHT, "so_long");
 	if (game->win_ptr == NULL)
-		ft_close_game(game);
+		ft_error_msg("Window creation failed.\n", game);
 }
 
 t_image	ft_new_sprite(void *mlx, char *path, t_game *game)

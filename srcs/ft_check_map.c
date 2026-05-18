@@ -6,7 +6,7 @@
 /*   By: narginaa <narginaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 10:57:39 by narginaa          #+#    #+#             */
-/*   Updated: 2026/02/27 08:41:43 by narginaa         ###   ########.fr       */
+/*   Updated: 2026/03/04 07:36:57 by narginaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ void	ft_check_rows(t_game *game)
 		{
 			ft_free_map(game);
 			ft_error_msg("Invalid map:\
-		missing wall from the right side of the map or invalid line.\n", game);
+		missing wall from the left side of the map or invalid line.\n", game);
 		}
 		else if (game->map.full[i][game->map.columns - 1] != WALL)
 		{
 			ft_free_map(game);
 			ft_error_msg("Invalid map:\
-		missing wall from the left side of the map or invalid line\n", game);
+		missing wall from the right side of the map or invalid line\n", game);
 		}
 		i++;
 	}
@@ -64,7 +64,7 @@ void	ft_count_map_param(t_game *game)
 		while (x < game->map.columns)
 		{
 			if (!ft_strchr("CEP01", game->map.full[y][x]))
-				ft_error_msg("Invalid map. Not expected map paramater.", game);
+				ft_error_msg("Invalid map. Not expected map parameter.", game);
 			else if (game->map.full[y][x] == PLAYER)
 			{
 				game->map.player.y = y;
