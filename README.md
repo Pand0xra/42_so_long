@@ -91,10 +91,10 @@ If any item is trapped, the game throws an error and refuses to launch.
 - **miniLibX**: Used to open the window, hook keyboard inputs, and render `.xpm` textures directly to the screen.
 - **Directional Sprites**: The player texture dynamically updates to face the direction they are walking  
 (Front, Back, Left, Right).
-- **Memory Management**: Strictly checks for memory leaks.  
+- **Memory Management**: Ensures proper cleanup of all allocated memory and graphical resources  
 All images are destroyed, windows are closed, and map arrays are freed upon exit (`ESC`, `Q`, or clicking the window cross).
 
-## 🔗 Ressources
+## 🔗 Resources
 
 - **42 Curriculum**: Subject PDF and constraints (Norminette, external functions, memory leaks).
 - **miniLibX documentation**: For understanding window rendering, image handling, and event hooks.
@@ -106,4 +106,4 @@ This project is licensed under the [MIT License](LICENSE).
 > All sprites and visual assets located in the `assets/sprites/` (or `img/`) folder were custom-drawn by me.
 > If you fork or reuse this project, please credit me for the artwork or replace them with your own assets!
 
-Developed with love 💜 by Naaman Nargisse (Pand0xra).
+Built by Pand0xra as part of the 42 curriculum.
