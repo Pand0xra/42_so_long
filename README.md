@@ -105,4 +105,4 @@ This project is licensed under the [MIT License](LICENSE).
 > All sprites and visual assets located in the `assets/sprites/` (or `img/`) folder were custom-drawn by me.
 > If you fork or reuse this project, please credit me for the artwork or replace them with your own assets!
 
-Built by Pand0xra as part of the 42 curriculum.
+> Built by Pand0xra as part of the 42 curriculum.
