@@ -1,12 +1,11 @@
+<h1 align="center">
+ so_long
+</h1>
 <p align="center">
 	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/Pand0xra/42_so_long?color=6272a4" />
 	<img alt="Main language" src="https://img.shields.io/github/languages/top/Pand0xra/42_so_long?color=6272a4"/>
 	<img alt="License" src="https://img.shields.io/github/license/Pand0xra/42_so_long?color=6272a4"/>
 </p>
-
-<h1 align="center">
- so_long
-</h1>
 <div align="center">
   <img src="./img/in_game_preview.png" width="800" alt="so_long game preview">
 </div>
