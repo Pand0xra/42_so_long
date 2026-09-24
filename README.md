@@ -14,7 +14,6 @@
 <img align="right" width="150" src="./img/125_success.png">
 
 The `so_long` project is a small 2D game built using the **miniLibX** graphics library. <br>
-All sprites and visual assets used in the project were drawn by me.
 
 🏆 | The goal is to create a top-down game where the player must collect all the items (coins) on a map <br>
 and then reach the exit, all while navigating around walls and keeping track of the total number of movements.
